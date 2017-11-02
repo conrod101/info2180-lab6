@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+
+    <button onclick="myFunction()">Search</button>
+
+    <script type="text/javascript">
+        function myFunction() {
+            event.preventDefault();
+
+            var httpRequest = new XMLHttpRequest();
+            var url = " https://info2180-lab6-conrod101.c9users.io/request.php?q=";
+            var str1 = "definition";
+
+            httpRequest.open("GET", url + str1);
+
+
+            httpRequest.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText.substr(22, 71));
+                }
+            }
+            httpRequest.send();
+        }
+    </script>
+</body>
+
+</html>
